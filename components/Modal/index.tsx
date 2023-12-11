@@ -63,7 +63,7 @@ export default function Modal({ isOpen, close }: ModalProps) {
           <img onClick={() => close()} src={Close} style={{ height: '1em', cursor: 'pointer' }} />
         </ModalHeader>
         <ModalTitle>Connect Wallet</ModalTitle>
-        <ModalSubTitle>To start using Web3 Starter Kit</ModalSubTitle>
+        <ModalSubTitle>To view transactions</ModalSubTitle>
         {!window ? (
           <ModalMenu>
             {walletsArray.map((wallet) => {

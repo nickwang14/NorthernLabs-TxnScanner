@@ -1,48 +1,24 @@
-# Web3 Starter Kit
+# Northen Labs Front End assignment
+A Transaction Scanner Clone using Ethers.js and Alchemy.com to query chain information
+Supports both Polygon and Ethereum Wallets/Transactions
 
-A react, typescript boilerplate for Web3 applications.
+Type into the input box to update wallet address, Table with full sorting capabilities and Transaction Details.
 
-### Features
+# Bootstrapped with
+[Web3 Starter Kit](https://github.com/albertocevallos/web3-starter-kit)
 
-- ⚡ [Next.js](https://nextjs.org) for Static Site Generator
-- 🔥 Type checking [TypeScript](https://www.typescriptlang.org)
-- 🗂 [Zustand](https://github.com/pmndrs/zustand) for state management
-- 🦊 Web3 accounts with [web3-react](https://github.com/NoahZinsmeister/web3-react)
-- 🔧 [Ethers.js](https://docs.ethers.io/v5/) for interacting with Ethereum and EVMs
+# Transactions
+## Desktop
+![Desktop Transactions](https://github.com/nickwang14/NorthernLabs-TxnScanner/assets/25964487/df91d087-1529-4b0f-9979-850cc9b8fb13)
 
-### Requirements
+## Mobile
+![Mobile Transactions Overview](https://github.com/nickwang14/NorthernLabs-TxnScanner/assets/25964487/ef44d302-08ba-48ff-86ec-f108482d73f2)
+![Mobile Transactions Table](https://github.com/nickwang14/NorthernLabs-TxnScanner/assets/25964487/4f972f5f-000a-4916-aa59-295a11145cc1)
 
-- [Node.js 14+](https://nextjs.org)
-- [Yarn](https://yarnpkg.com/)
+# Transaction Details
+## Desktop
+![Desktop Transaction Details](https://github.com/nickwang14/NorthernLabs-TxnScanner/assets/25964487/e2b36038-e7d8-4592-be83-df9768e204a1)
 
-### Usage
+## Mobile
+![Mobile Transaction Details](https://github.com/nickwang14/NorthernLabs-TxnScanner/assets/25964487/97bc44b7-c89c-43c0-93cc-3a7c6ab0eac3)
 
-To install packages:
-
-```bash
-yarn
-```
-
-Run local development mode with:
-
-```bash
-yarn dev
-```
-
-### Configuration
-
-You can easily configure the boilerplate by changing the following files:
-
-- `config/theme.ts`: Colors, media queries, light mode, dark mode
-
-- `config/wallets.ts`: Specifies which wallets are supported
-
-- `config/menu.ts`: Socials and resources for your project
-
-- `constants/blockchain.ts`: Specifies which chains are supported
-
-- `constants/contracts.ts`: Contracts users are interacting with
-
-- `constants/tokens.ts`: ERC20 tokens interacting with contracts
-
-- `store/`: Store, types, hooks and updaters for your state

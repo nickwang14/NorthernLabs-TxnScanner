@@ -1,7 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Header } from './Header'
-import { Footer } from './Footer'
 
 interface LayoutProps {
   children: JSX.Element
@@ -13,7 +11,6 @@ export const Layout = ({ children }: LayoutProps) => {
       <div style={{ flex: '1 1 auto' }}>
         <Header />
         <>{children}</>
-        <Footer />
       </div>
     </div>
   )

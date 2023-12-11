@@ -3,32 +3,16 @@ export interface Social {
   link: string
 }
 
-export type SocialId = 'audit' | 'docs' | 'github' | 'twitter' | 'mirror'
-
-/*
- * Supported walelts
- */
+export type SocialId = 'github' | 'twitter'
 
 const socials: { [key in SocialId]: Social } = {
-  audit: {
-    name: 'MetaMask',
-    link: 'https://google.com',
-  },
-  docs: {
-    name: 'Docs',
-    link: 'https://google.com',
-  },
   github: {
     name: 'GitHub',
-    link: 'https://google.com',
+    link: 'https://github.com/nickwang14',
   },
   twitter: {
     name: 'Twitter',
-    link: 'https://google.com',
-  },
-  mirror: {
-    name: 'Mirror',
-    link: 'https://google.com',
+    link: 'https://x.com/definitelynickw',
   },
 }
 

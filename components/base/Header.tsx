@@ -1,34 +1,52 @@
 import React from 'react'
 import styled from 'styled-components'
-import Wrapper from 'components/Wrapper/index'
-import Settings from './Settings'
+// import Settings from 'components/base/Settings'
+import { Button } from '@mantine/core'
+import { useRouter } from 'next/router'
+import { Flex } from '@mantine/core'
+import { socialsArray } from 'config/menu'
+import { IconArrowBack } from '@tabler/icons-react'
+
 
 const Row = styled.header`
-  padding: 24px 1em;
   display: flex;
+  padding: 2% 5%;
   flex-flow: row wrap;
   align-items: center;
 `
 
-const Title = styled.div`
-  flex-basis: 25%;
-  max-width: 25%;
-`
-
-const Menu = styled.div`
-  flex-basis: 50%;
-  max-width: 50%;
-  text-align: center;
+const Item = styled.a`
+  display: flex;
+  margin: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #94a3b8;
 `
 
 export const Header = () => {
+  const router = useRouter()
+  const isHome = router.pathname === '/transactions'
+
   return (
-    <Wrapper>
-      <Row>
-        <Title>Title</Title>
-        <Menu>Menu</Menu>
-        <Settings />
-      </Row>
-    </Wrapper>
+    <Row>
+      <Flex justify='space-between' w={'100%'}>
+        <Button
+          color='dark'
+          onClick={() => isHome ? router.push('/') : router.back()}
+        >
+          {isHome ? 'Refresh' : <><IconArrowBack /> Home</>}
+        </Button>
+        <Flex>
+          {socialsArray.map((item) => {
+            return (
+              <Item href={item.link} target="_blank" key={item.name}>
+                {item.name}
+              </Item>
+            )
+          })}
+        </Flex>
+        {/* <Settings /> */}
+      </Flex>
+    </Row>
   )
 }
