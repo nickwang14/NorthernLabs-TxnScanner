@@ -36,16 +36,12 @@ interface TransactionState {
 }
 
 const formatTransaction = (tx: TransactionReceipt, type: string) => {
-  let utcSeconds = tx.timeStamp as number;
-  let d = new Date(0);
-  d.setUTCSeconds(utcSeconds);
-  
   return {
     value: tx.value.toString(),
     hash: tx.hash,
     from: tx.from,
     to: tx.to,
-    date: d.toLocaleString(),
+    date: tx.timeStamp,
     confirmations: tx.confirmations,
     blockNumber: tx.blockNumber,
     gasFee: tx.cumulativeGasUsed,

@@ -96,7 +96,13 @@ const Transactions = ({
       {
         accessorKey: 'date',
         header: 'Date',
-        Cell: ({ cell }) => cell.getValue() as string,
+        Cell: ({ cell }) => {
+          let utcSeconds = cell.getValue() as number;
+          let d = new Date(0);
+          d.setUTCSeconds(utcSeconds);
+
+          return d.toLocaleString();
+        }
       },
       {
         accessorKey: 'type',
@@ -168,6 +174,11 @@ const Transactions = ({
               <MantineReactTable
                 data={transactions}
                 columns={columns}
+                initialState={{
+                  sorting: [
+                    { id: 'date', desc: true }, //sort by state in ascending order by default
+                  ],
+                }}
                 enableRowActions={true}
                 renderRowActions={(table) => (
                   <Link
