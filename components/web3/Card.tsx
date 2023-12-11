@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import { CoinbaseWallet } from '@web3-react/coinbase-wallet'
 import { Web3ReactHooks } from '@web3-react/core'
 import { GnosisSafe } from '@web3-react/gnosis-safe'
@@ -16,7 +17,7 @@ interface Props {
   isActivating: ReturnType<Web3ReactHooks['useIsActivating']>
   isActive: ReturnType<Web3ReactHooks['useIsActive']>
   error: Error | undefined
-  setError: (error: Error | undefined) => void
+  setError: Dispatch<SetStateAction<Error | undefined>>
   ENSNames: ReturnType<Web3ReactHooks['useENSNames']>
   provider?: ReturnType<Web3ReactHooks['useProvider']>
   accounts?: string[]

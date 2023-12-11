@@ -15,7 +15,7 @@ export default function WalletConnectCard() {
   const provider = useProvider()
   const ENSNames = useENSNames(provider)
 
-  const [error, setError] = useState(undefined)
+  const [error, setError] = useState<Error | undefined>(undefined)
 
   // log URI when available
   useEffect(() => {

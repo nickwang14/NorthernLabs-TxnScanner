@@ -14,7 +14,7 @@ export default function MetaMaskCard() {
   const provider = useProvider()
   const ENSNames = useENSNames(provider)
 
-  const [error, setError] = useState(undefined)
+  const [error, setError] = useState<Error | undefined>(undefined)
 
   // attempt to connect eagerly on mount
   useEffect(() => {
