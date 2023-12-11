@@ -1,4 +1,5 @@
 import { MediaQuery, Card, TextInput, Loader, Flex, useMantineTheme } from '@mantine/core';
+import { utils } from 'ethers';
 import { useEffect, useMemo } from 'react';
 import styled from 'styled-components'
 import Cell from './Cell'
@@ -58,7 +59,7 @@ const Transactions = ({
         accessorKey: 'value',
         header: 'Amount',
         Cell: ({ cell }) => {
-          return cell.getValue() as string
+          return utils.formatEther(cell.getValue() as string)
         }
       },
       {
