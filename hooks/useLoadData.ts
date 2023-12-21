@@ -29,53 +29,51 @@ const useLoadData = () => {
   useEffect(() => {
     const getETHBalance = async () => {
       setLoading(true);
-      await etherscanProvider.getBalance(address)
-        .then((balance) => {
-          setEthBalance(utils.formatEther(balance));
-        })
-        .catch(error => {
-          setError(error)
-        });
+      try{
+        const balance = await etherscanProvider.getBalance(address)
+        setEthBalance(utils.formatEther(balance));
+        setLoading(false);
+      } catch {
+        setError('Error fetching ETH balance')
+        setLoading(false);
+      }
     }
 
     const getPOLYBalance = async () => {
-      setLoading(true);
-      await polygonProvider.getBalance(address)
-        .then((balance) => {
-          setPolyBalance(utils.formatEther(balance));
-        })
-        .catch(error => {
-          setError(error)
-        });
+      try{
+        const balance = await polygonProvider.getBalance(address)
+        setPolyBalance(utils.formatEther(balance));
+        setLoading(false);
+        } catch {
+          setError('Error fetching POLY balance')
+          setLoading(false);
+        }
     }
 
     const getETHTransactions = async () => {
       setLoading(true);
-      await axios.get(etherscanTxnListUrl)
-        .then((response) => {
+      try{
+        const ethTxns = await axios.get(etherscanTxnListUrl)
+        addPolyTransactions(ethTxns.data.result)
+        setLoading(false);
+        } catch {
+          setError('Error fetching POLY balance')
           setLoading(false);
-          setError(null)
-          addEthTransactions(response.data.result)
-        })
-        .catch(error => {
-          setLoading(false);
-          setError(error)
-        });
+        }
     }
 
     const getPOLYTransactions = async () => {
       setLoading(true);
-      await axios.get(polygonscanTxnListUrl)
-        .then((response) => {
+      try{
+        const polyTxns = await axios.get(polygonscanTxnListUrl)
+       
+        addPolyTransactions(polyTxns.data.result)
+        setLoading(false);
+        } catch {
           setLoading(false);
-          setError(null)
-          addPolyTransactions(response.data.result)
-        })
-        .catch((error) => {
+          setError('Error fetching POLY balance')
           setLoading(false);
-          setError(error)
         }
-        );
     }
 
     if(transactions && transactions.length === 0) {
